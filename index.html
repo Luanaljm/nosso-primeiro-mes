@@ -28,8 +28,14 @@
             </div>
             <br>
             <button id="btn-proxima" onclick="mudarFoto()" class="btn-interativo">Próxima foto ✨</button>
-            <br>
-            <button onclick="window.location.reload()" class="btn-minimal">Ver do início</button>
+        </div>
+
+        <div id="fase4" class="hidden">
+            <div class="card-final">
+                <h1>Pra finalizar:</h1>
+                <p class="texto-grande">"To animada pra Salvador hahah, é amanhã... Vai ser incrível!" ✈️☀️</p>
+                <button onclick="window.location.reload()" class="btn-minimal">Ver do início</button>
+            </div>
         </div>
     </div>
 
@@ -37,10 +43,7 @@
         const textoTerminal = "> Inicializando sistema... \n> Resgatando um momento especial... \n> Pronto.";
         let i = 0;
 
-        // Lista das suas 4 fotos
         const fotos = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"]; 
-        
-        // Suas 4 legendas na ordem correta
         const legendas = [
             "Obrigada por fazer esse mês tão inesquecível. ❤️",
             "A hora passa rápido demais com você. ✨",
@@ -71,15 +74,12 @@
         function mudarFoto() {
             fotoAtual++;
             if (fotoAtual < fotos.length) {
-                // Atualiza a imagem e a legenda ao mesmo tempo
                 document.getElementById("foto-exibida").src = fotos[fotoAtual];
                 document.getElementById("legenda-foto").innerHTML = legendas[fotoAtual];
             } else {
-                // O que acontece no final das fotos
-                document.getElementById("btn-proxima").innerHTML = "E que venham muitos outros meses... ❤️";
-                document.getElementById("btn-proxima").disabled = true;
-                document.getElementById("btn-proxima").style.backgroundColor = "#222";
-                document.getElementById("btn-proxima").style.color = "#888";
+                // Quando acabam as fotos, vai para a mensagem de Salvador
+                document.getElementById("fase3").classList.add("hidden");
+                document.getElementById("fase4").classList.remove("hidden");
             }
         }
 

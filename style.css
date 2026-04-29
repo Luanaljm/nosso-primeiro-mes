@@ -26,8 +26,7 @@ body {
     display: none !important;
 }
 
-/* Estilo do Card de Texto (Fase 2) */
-.card-texto {
+.card-texto, .card-final {
     animation: fadeIn 1.5s forwards;
     background: rgba(255, 255, 255, 0.03);
     padding: 40px;
@@ -35,20 +34,19 @@ body {
     border: 1px solid #222;
 }
 
-.card-texto h2 {
-    font-size: 1.5rem;
+.card-final h1 {
+    color: #ff4d4d; /* Cor de destaque para o "Pra finalizar" */
+    font-size: 1.8rem;
     margin-bottom: 20px;
+}
+
+.texto-grande {
+    font-size: 2rem; /* Texto bem grande como você pediu */
+    line-height: 1.4;
+    font-weight: bold;
     color: #fff;
 }
 
-.card-texto p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #ccc;
-    margin-bottom: 30px;
-}
-
-/* Estilo da Foto Polaroid (Fase 3) */
 #fase3 {
     animation: fadeIn 2s forwards;
 }
@@ -59,14 +57,13 @@ body {
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
     transform: rotate(-2deg);
     display: inline-block;
-    transition: transform 0.5s ease; /* Efeito suave ao trocar */
 }
 
 img {
     max-width: 100%;
     width: 300px;
-    height: 400px; /* Definindo altura fixa para não "pular" na troca */
-    object-fit: cover; /* Ajusta a foto sem esticar */
+    height: 400px;
+    object-fit: cover;
     display: block;
 }
 
@@ -78,7 +75,6 @@ img {
     font-size: 1rem;
 }
 
-/* Botões */
 .btn-interativo {
     background-color: #ffffff;
     color: #000000;
@@ -89,7 +85,7 @@ img {
     cursor: pointer;
     border-radius: 4px;
     transition: 0.3s;
-    margin-top: 25px; /* Espaço para não grudar na foto */
+    margin-top: 25px;
 }
 
 .btn-interativo:hover {
@@ -102,12 +98,10 @@ img {
     background: transparent;
     color: #444;
     border: none;
-    margin-top: 15px;
+    margin-top: 30px;
     cursor: pointer;
     text-decoration: underline;
     font-size: 0.8rem;
-    display: block;
-    width: 100%;
 }
 
 @keyframes fadeIn {
