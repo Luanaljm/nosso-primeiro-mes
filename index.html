@@ -24,7 +24,7 @@
         <div id="fase3" class="hidden">
             <div class="moldura">
                 <img id="foto-exibida" src="foto1.jpg" alt="Momento Especial">
-                <p class="legenda">Obrigada por cada momento e por me fazer tão bem. ❤️</p>
+                <p id="legenda-foto" class="legenda">Obrigada por fazer esse mês tão inesquecível. ❤️</p>
             </div>
             <br>
             <button id="btn-proxima" onclick="mudarFoto()" class="btn-interativo">Próxima foto ✨</button>
@@ -34,12 +34,20 @@
     </div>
 
     <script>
-        // Mudei a frase aqui para o singular conforme pediu
         const textoTerminal = "> Inicializando sistema... \n> Resgatando um momento especial... \n> Pronto.";
         let i = 0;
 
-        // Lista das suas fotos - ADICIONE OS NOMES DELAS AQUI
-        const fotos = ["foto1.jpg", "foto2.jpg", "foto3.jpg"]; 
+        // Lista das suas 4 fotos
+        const fotos = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg"]; 
+        
+        // Suas 4 legendas na ordem correta
+        const legendas = [
+            "Obrigada por fazer esse mês tão inesquecível. ❤️",
+            "A hora passa rápido demais com você. ✨",
+            "Amo você ❤️",
+            "Obrigada por cada momento e por me fazer tão bem. ❤️"
+        ];
+
         let fotoAtual = 0;
 
         function digitar() {
@@ -63,11 +71,15 @@
         function mudarFoto() {
             fotoAtual++;
             if (fotoAtual < fotos.length) {
+                // Atualiza a imagem e a legenda ao mesmo tempo
                 document.getElementById("foto-exibida").src = fotos[fotoAtual];
+                document.getElementById("legenda-foto").innerHTML = legendas[fotoAtual];
             } else {
-                // Se acabarem as fotos, muda o texto do botão ou esconde
-                document.getElementById("btn-proxima").innerHTML = "E que venham muitos outros meses para a gente registrar...❤️";
+                // O que acontece no final das fotos
+                document.getElementById("btn-proxima").innerHTML = "E que venham muitos outros meses... ❤️";
                 document.getElementById("btn-proxima").disabled = true;
+                document.getElementById("btn-proxima").style.backgroundColor = "#222";
+                document.getElementById("btn-proxima").style.color = "#888";
             }
         }
 
