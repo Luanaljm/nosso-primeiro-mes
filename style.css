@@ -55,16 +55,18 @@ body {
 
 .moldura {
     background-color: white;
-    padding: 15px 15px 60px 15px; /* Espaço maior embaixo para a legenda */
+    padding: 15px 15px 60px 15px;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
     transform: rotate(-2deg);
     display: inline-block;
+    transition: transform 0.5s ease; /* Efeito suave ao trocar */
 }
 
 img {
     max-width: 100%;
     width: 300px;
-    height: auto;
+    height: 400px; /* Definindo altura fixa para não "pular" na troca */
+    object-fit: cover; /* Ajusta a foto sem esticar */
     display: block;
 }
 
@@ -87,6 +89,7 @@ img {
     cursor: pointer;
     border-radius: 4px;
     transition: 0.3s;
+    margin-top: 25px; /* Espaço para não grudar na foto */
 }
 
 .btn-interativo:hover {
@@ -99,10 +102,12 @@ img {
     background: transparent;
     color: #444;
     border: none;
-    margin-top: 20px;
+    margin-top: 15px;
     cursor: pointer;
     text-decoration: underline;
     font-size: 0.8rem;
+    display: block;
+    width: 100%;
 }
 
 @keyframes fadeIn {

@@ -15,25 +15,32 @@
 
         <div id="fase2" class="hidden">
             <div class="card-texto">
-                <h2>Um pequeno detalhe...</h2>
+                <h2>Para o meu amor</h2>
                 <p>Eu não imaginava que em apenas um mês alguém conseguiria mudar tanto os meus dias. Obrigada por cada risada e por todo o carinho. Eu amo você e estou muito feliz por ter você ao meu lado!</p>
-                <button onclick="proximaFase()" class="btn-interativo">Clique para revelar o que eu sinto</button>
+                <button onclick="proximaFase()" class="btn-interativo">Ver nossa história ❤️</button>
             </div>
         </div>
 
         <div id="fase3" class="hidden">
             <div class="moldura">
-                <img src="foto.jpg" alt="Momento Especial">
+                <img id="foto-exibida" src="foto1.jpg" alt="Momento Especial">
                 <p class="legenda">Obrigada por cada momento e por me fazer tão bem. ❤️</p>
             </div>
+            <br>
+            <button id="btn-proxima" onclick="mudarFoto()" class="btn-interativo">Próxima foto ✨</button>
             <br>
             <button onclick="window.location.reload()" class="btn-minimal">Ver do início</button>
         </div>
     </div>
 
     <script>
-        const textoTerminal = "> Inicializando memórias... \n> Analisando 30 dias de foco... \n> Sistema pronto.";
+        // Mudei a frase aqui para o singular conforme pediu
+        const textoTerminal = "> Inicializando sistema... \n> Resgatando um momento especial... \n> Pronto.";
         let i = 0;
+
+        // Lista das suas fotos - ADICIONE OS NOMES DELAS AQUI
+        const fotos = ["foto1.jpg", "foto2.jpg", "foto3.jpg"]; 
+        let fotoAtual = 0;
 
         function digitar() {
             if (i < textoTerminal.length) {
@@ -51,6 +58,17 @@
         function proximaFase() {
             document.getElementById("fase2").classList.add("hidden");
             document.getElementById("fase3").classList.remove("hidden");
+        }
+
+        function mudarFoto() {
+            fotoAtual++;
+            if (fotoAtual < fotos.length) {
+                document.getElementById("foto-exibida").src = fotos[fotoAtual];
+            } else {
+                // Se acabarem as fotos, muda o texto do botão ou esconde
+                document.getElementById("btn-proxima").innerHTML = "Fim da nossa história (por enquanto) ❤️";
+                document.getElementById("btn-proxima").disabled = true;
+            }
         }
 
         window.onload = digitar;
