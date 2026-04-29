@@ -3,43 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30 Dias de Foco</title>
+    <title>Nossa História - 01 Mês</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <div id="terminal">
+        <div id="fase1">
             <p id="texto-digitação"></p>
         </div>
 
-        <div id="galeria" class="hidden">
-            <div class="moldura">
-                <img src="foto.jpg" alt=">Obrigada por fazer esse mês tão enesquecível e especial">
-                <p class="legenda">1 mês revelando os melhores momentos. ❤️</p>
+        <div id="fase2" class="hidden">
+            <div class="card-texto">
+                <h2>Um pequeno detalhe...</h2>
+                <p>Eu não imaginava que em apenas um mês alguém conseguiria mudar tanto os meus dias. Obrigada por cada risada e por todo o carinho. Eu amo você e estou muito feliz por ter você ao meu lado!</p>
+                <button onclick="proximaFase()" class="btn-interativo">Clique para revelar o que eu sinto</button>
             </div>
-            <button onclick="window.location.reload()" class="btn">Ver de novo</button>
+        </div>
+
+        <div id="fase3" class="hidden">
+            <div class="moldura">
+                <img src="foto.jpg" alt="Momento Especial">
+                <p class="legenda">Obrigada por cada momento e por me fazer tão bem. ❤️</p>
+            </div>
+            <br>
+            <button onclick="window.location.reload()" class="btn-minimal">Ver do início</button>
         </div>
     </div>
 
     <script>
-        // Efeito de digitação simples
-        const texto = "> Inicializando sistema... \n> Carregando memórias de 1 mês... \n> Foco ajustado. \n> Revelando surpresa...";
+        const textoTerminal = "> Inicializando memórias... \n> Analisando 30 dias de foco... \n> Sistema pronto.";
         let i = 0;
-        const velocidade = 50; 
 
         function digitar() {
-            if (i < texto.length) {
-                document.getElementById("texto-digitação").innerHTML += texto.charAt(i);
+            if (i < textoTerminal.length) {
+                document.getElementById("texto-digitação").innerHTML += textoTerminal.charAt(i);
                 i++;
-                setTimeout(digitar, velocidade);
+                setTimeout(digitar, 50);
             } else {
-                // Após digitar, mostra a foto
                 setTimeout(() => {
-                    document.getElementById("terminal").classList.add("hidden");
-                    document.getElementById("galeria").classList.remove("hidden");
+                    document.getElementById("fase1").classList.add("hidden");
+                    document.getElementById("fase2").classList.remove("hidden");
                 }, 1000);
             }
+        }
+
+        function proximaFase() {
+            document.getElementById("fase2").classList.add("hidden");
+            document.getElementById("fase3").classList.remove("hidden");
         }
 
         window.onload = digitar;
