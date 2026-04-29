@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Dias de Foco</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="terminal">
+            <p id="texto-digitação"></p>
+        </div>
+
+        <div id="galeria" class="hidden">
+            <div class="moldura">
+                <img src="foto.jpg" alt=">Obrigada por fazer esse mês tão enesquecível e especial">
+                <p class="legenda">1 mês revelando os melhores momentos. ❤️</p>
+            </div>
+            <button onclick="window.location.reload()" class="btn">Ver de novo</button>
+        </div>
+    </div>
+
+    <script>
+        // Efeito de digitação simples
+        const texto = "> Inicializando sistema... \n> Carregando memórias de 1 mês... \n> Foco ajustado. \n> Revelando surpresa...";
+        let i = 0;
+        const velocidade = 50; 
+
+        function digitar() {
+            if (i < texto.length) {
+                document.getElementById("texto-digitação").innerHTML += texto.charAt(i);
+                i++;
+                setTimeout(digitar, velocidade);
+            } else {
+                // Após digitar, mostra a foto
+                setTimeout(() => {
+                    document.getElementById("terminal").classList.add("hidden");
+                    document.getElementById("galeria").classList.remove("hidden");
+                }, 1000);
+            }
+        }
+
+        window.onload = digitar;
+    </script>
+</body>
+</html>
